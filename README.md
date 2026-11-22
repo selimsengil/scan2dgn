@@ -66,7 +66,7 @@ earlier "found within 0.6 m" metric scored the same as random and was thrown out
 
 **Held out:** one drawing family (Kışla) is never used for training, and one floor stays a fully blind final test.
 
-## Results (22 Nov 2026)
+## Results (23 Nov 2026)
 
 ### Openings, end to end
 
@@ -74,14 +74,17 @@ These are 5 held-out floors with 144 openings, drawn by a different office in a 
 
 | Floor | Openings | Drawn and valid | Wrong boxes drawn | Height right (read + inferred) |
 |---|---|---|---|---|
-| Malkoç K2 (hand-labelled) | 40 | 38 | 1 | 25 + 6 |
-| Kışla 85/1 | 40 | 38 | 2 | 35 + 1 |
-| Kışla 84/1 | 29 | 25 | 7 | 18 + 4 |
-| Kışla 85/Z | 9 | 6 | 2 | 6 + 0 |
-| Kışla 84/Z | 26 | 23 | 8 | 16 + 3 |
-| **Total** | **144** | **130 (90 %)** | **20** | **100 + 14** |
+| Malkoç K2 (hand-labelled) | 40 | 38 | 3 | 26 + 6 |
+| Kışla 85/1 | 40 | 37 | 2 | 36 + 1 |
+| Kışla 84/1 | 29 | 26 | 3 | 19 + 3 |
+| Kışla 85/Z | 9 | 7 | 0 | 6 + 0 |
+| Kışla 84/Z | 26 | 22 | 6 | 14 + 3 |
+| **Total** | **144** | **130 (90 %)** | **14** | **101 + 13** |
 
-Location alone is 141/144.
+Opening net a5. The retrained net cut wrong boxes drawn from 20 to 14 against the previous net (a3), with the same
+130 valid openings.
+
+Location alone is 140/144.
 - Most remaining "wrong boxes" are real openings that are missing from the reliable label set, or two pieces of
   one opening.
 - The real junk is balcony railings.
@@ -170,10 +173,8 @@ repository** (see `.gitignore`). Results are reported as numbers only.
 
 ## Status and next steps
 
-- **In progress:** retraining the opening net (a5).
-  - Fixes: no tag channel at training, since tags are not given at run time; class weight lowered from 3× to
-    1.5×; a separation seam between doors meeting at a corner; more negative crops so railings are seen.
-  - It will be compared against a3 with `openings/aciklik_karsilastir.py`.
+- **Done:** retraining the opening net (a5): no tag channel at training, class weight 1.5×, a separation seam
+  between doors meeting at a corner, more negative crops. Junk boxes 45 → 29, end overshoot 2.5 → 1.1 cm.
 - Balcony railings drawn as windows: the main source of wrong boxes on the unseen drawing style.
 - End to end with predicted rooms: the chain is currently tested with labelled rooms; next it runs on the line
   network's rooms.

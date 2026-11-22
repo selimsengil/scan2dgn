@@ -1,4 +1,4 @@
-# Detailed results (22 Nov 2026)
+# Detailed results (23 Nov 2026)
 
 ## Opening network variants (5 held-out floors, 144 openings)
 
@@ -8,20 +8,24 @@ From `openings/aciklik_karsilastir.py`. The end correction is measured on 3 trai
 |---|---|---|---|---|---|---|
 | a3, old box extraction | 136 | 45 (20) | 9 | 127 | – | 95 |
 | a3, `boxes3` with class split and L split | **141** | 45 (21) | 12 | **129** | 60 | 98 |
-| a5, retrained | *running* | | | | | |
+| **a5, retrained** (no tag channel, class weight 1.5×, corner seams) | 140 | **29 (14)** | 10 | **130** | 51 | 97 |
 
 Median jamb error per floor (a3 + `boxes3`): Malkoç 2.8, Kışla 85/1 3.2, 84/1 5.2, 85/Z 2.9, 84/Z 4.2 cm.
+(a5: 3.0, 3.7, 4.7, 3.4, 4.4 cm.) The end overshoot that has to be corrected fell from 2.5 cm (a3) to 1.1 cm (a5).
+
+Retraining removed about a third of the junk boxes (45 → 29) at the cost of one missed opening; the chain below uses a5.
 
 ## End-to-end chain (`openings/aciklik_zincir.py`)
 
 | Floor | Drawn right | Wrong drawn | Height right, read | Height right, inferred | Height wrong, read | Height wrong, inferred | Height "?" |
 |---|---|---|---|---|---|---|---|
-| Malkoç K2 | 38 | 1 | 25 | 6 | 3 | 1 | 3 |
-| Kışla 85/1 | 38 | 2 | 35 | 1 | 0 | 0 | 2 |
-| Kışla 84/1 | 25 | 7 | 18 | 4 | 0 | 2 | 1 |
-| Kışla 85/Z | 6 | 2 | 6 | 0 | 0 | 0 | 0 |
-| Kışla 84/Z | 23 | 8 | 16 | 3 | 1 | 0 | 3 |
-| **Total** | **130** | **20** | **100** | **14** | **4** | **3** | **9** |
+| Malkoç K2 | 38 | 3 | 26 | 6 | 3 | 1 | 2 |
+| Kışla 85/1 | 37 | 2 | 36 | 1 | 0 | 0 | 0 |
+| Kışla 84/1 | 26 | 3 | 19 | 3 | 0 | 2 | 2 |
+| Kışla 85/Z | 7 | 0 | 6 | 0 | 0 | 0 | 1 |
+| Kışla 84/Z | 22 | 6 | 14 | 3 | 1 | 1 | 3 |
+| **Total (a5)** | **130** | **14** | **101** | **13** | **4** | **4** | **8** |
+| Total (a3, before retraining) | 130 | 20 | 100 | 14 | 4 | 3 | 9 |
 
 How heights are chosen:
 - **Read:** a vote of the tag reads within 0.6 m whose first number fits the box width (±15 cm). A door height
