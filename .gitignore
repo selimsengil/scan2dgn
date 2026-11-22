@@ -1,0 +1,26 @@
+# local paths and everything that is not code
+config.local.json
+data/
+models/
+projects/
+runs/
+# drawings, scans, labels, weights, outputs — client data never goes into the repo
+*.dgn
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.npy
+*.npz
+*.pt
+*.pth
+*.safetensors
+*.onnx
+*.gguf
+*.mvba
+*.log
+# python
+__pycache__/
+*.pyc
+.venv*/

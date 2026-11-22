@@ -1,0 +1,11 @@
+# .venv-ocr3 — Florence-2 / DeepSeek-OCR-2 need the older transformers (eager attention)
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+transformers==4.46.3
+accelerate==1.16.0
+timm==1.0.31
+einops==0.8.2
+numpy==2.5.4
+shapely==2.2.0
+opencv-python-headless==5.1.0.95

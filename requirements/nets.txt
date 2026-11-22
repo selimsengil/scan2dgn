@@ -1,0 +1,15 @@
+# .venv-spec — U-Net training/inference, image matching, VLM readers. CUDA 12.8.
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.10.0+cu128
+torchvision==0.25.0+cu128
+transformers==5.22.2
+accelerate==1.15.0
+timm==0.9.16
+einops==0.8.2
+easyocr==1.7.2
+numpy==2.5.4
+shapely==2.2.0
+scipy==1.18.1
+scikit-image==0.26.0
+opencv-python==5.0.0.93
+pillow==13.0.0

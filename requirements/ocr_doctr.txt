@@ -1,0 +1,8 @@
+# .venv-ocr2 — docTR reader (tags/ocr_bench/e2e_doctr.py)
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch==2.11.0+cu128
+torchvision==0.26.0+cu128
+python-doctr==1.1.0
+numpy==2.5.4
+shapely==2.2.0
+opencv-python-headless==5.1.0.95

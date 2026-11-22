@@ -1,0 +1,11 @@
+# .venv — geometry, rules, chain, DGN extraction/engine (CPU). Python 3.12, Windows.
+numpy==2.5.3
+shapely==2.2.0
+scipy==1.18.1
+scikit-image==0.26.0
+opencv-python==5.0.0.93
+pillow==12.0.0
+rapidocr==3.10.0
+onnxruntime==1.30.0
+pywin32==312        # MicroStation COM
+comtypes==1.4.17
